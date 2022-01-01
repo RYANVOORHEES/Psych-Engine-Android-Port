@@ -447,7 +447,8 @@ class PlayState extends MusicBeatState
 				FlxG.sound.list.add(trainSound);
 
 				var street:BGSprite = new BGSprite('philly/street', -40, 50);
- 
+				add(street);
+
 			case 'limo': //Week 4
 				var skyBG:BGSprite = new BGSprite('limo/limoSunset', -120, -50, 0.1, 0.1);
 				add(skyBG);
@@ -900,20 +901,20 @@ class PlayState extends MusicBeatState
 		add(iconP2);
 		reloadHealthBarColors();
         
-		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
-		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		scoreTxt.scrollFactor.set();
-		scoreTxt.borderSize = 1.25;
-		scoreTxt.visible = !ClientPrefs.hideHud;
-		add(scoreTxt);
-		
-		var creditTxt:FlxText = new FlxText(4,healthBarBG.y + 20,0,("Port by Kauã"), 24);
+        var creditTxt:FlxText = new FlxText(4,healthBarBG.y + 20,0,("Port by (Kauã) "), 24);
         creditTxt.scrollFactor.set();
         creditTxt.setFormat("VCR OSD Mono", 24, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
         creditTxt.borderColor = FlxColor.BLACK;
         creditTxt.borderSize = 3;
         creditTxt.borderStyle = FlxTextBorderStyle.OUTLINE;
         add(creditTxt);
+        
+		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
+		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		scoreTxt.scrollFactor.set();
+		scoreTxt.borderSize = 1.25;
+		scoreTxt.visible = !ClientPrefs.hideHud;
+		add(scoreTxt);
 
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
